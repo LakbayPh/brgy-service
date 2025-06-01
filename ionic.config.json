@@ -1,0 +1,7 @@
+{
+  "name": "brgy-service",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
