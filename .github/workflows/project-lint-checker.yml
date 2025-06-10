@@ -2,9 +2,11 @@
 name: Lint
 
 on:
-  pull_request: null
+  pull_request: 
+    branches:
+      - '**'
 
-permissions: {}
+permissions: { }
 
 jobs:
   build:
