@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow anyone to read tenant settings and pages
+    match /tenants/{tenantId} {
+      allow read: if true; // allows reading tenant document
+      
+      match /settings/{settingDoc} {
+        allow read: if true;  // allows reading settings documents
+      }
+      
+      match /pages/{pageId} {
+        allow read: if true;  // allows reading pages
+      }
+      
+      match /users/{userId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
