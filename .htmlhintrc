@@ -1,3 +1,5 @@
 {
-  "doctype-first": false
+  "rules": {
+    "doctype-first": false
+  }
 }

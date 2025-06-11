@@ -2,10 +2,6 @@
 LICENSE
 README.md
 
-#Ignore environments
-src/environments/environment.ts
-src/environments/environment.prod.ts
-
 #Ignore public and www
 public
 www
