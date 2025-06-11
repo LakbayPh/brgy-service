@@ -14,21 +14,30 @@ jobs:
       contents: write
       # To write Super-linter status checks
       statuses: write
+      packages: read
+      
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.SUPER_LINTER_TOKEN }}
       - name: Super-Linter
         uses: super-linter/super-linter@v7.4.0 # x-release-please-version
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SUPER_LINTER_TOKEN }}
           # Set your fix mode variables to true
-          FIX_YAML_PRETTIER: true
+          FIX_CSS_PRETTIER: true
+          FIX_GRAPHQL_PRETTIER: true
           FIX_HTML_PRETTIER: true
           FIX_JAVASCRIPT_PRETTIER: true
           FIX_JSON_PRETTIER: true
-          FIX_MARKDOWN_PRETTIER: true
+          FIX_JSONC_PRETTIER: true
+          FIX_JSX_PRETTIER: true
+          FIX_TYPESCRIPT_PRETTIER: true
+          FIX_VUE_PRETTIER: true
+          FIX_YAML_PRETTIER: true
+          
       - name: Commit and push linting fixes
         # Run only on:
         # - Pull requests
@@ -42,3 +51,4 @@ jobs:
           commit_message: "chore: fix linting issues"
           commit_user_name: super-linter
           commit_user_email: super-linter@super-linter.dev
+          token: ${{ secrets.SUPER_LINTER_TOKEN }}
