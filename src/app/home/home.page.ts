@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 import {
   IonHeader,
   IonToolbar,
@@ -11,8 +11,8 @@ import {
   IonCardContent,
   IonGrid,
   IonCol,
-  IonRow,
-} from '@ionic/angular/standalone';
+  IonRow
+} from '@ionic/angular/standalone'
 
 @Component({
   selector: 'app-home',
@@ -30,9 +30,9 @@ import {
     IonCardContent,
     IonGrid,
     IonCol,
-    IonRow,
-  ],
+    IonRow
+  ]
 })
 export class HomePage {
-  constructor() {}
+  constructor () {}
 }
