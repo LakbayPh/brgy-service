@@ -1,13 +1,13 @@
 ---
 name: Lint
 
-on: 
+on:
   pull_request: null
 
 permissions:
   contents: read
 
-jobs:          
+jobs:
   fix-lint-issues:
     permissions:
       # To write linting fixes
@@ -15,7 +15,7 @@ jobs:
       # To write Super-linter status checks
       statuses: write
       packages: read
-      
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SUPER_LINTER_TOKEN }}
           # Set your fix mode variables to true
           FIX_CSS_PRETTIER: true
+          FIX_CSS: true
           FIX_GRAPHQL_PRETTIER: true
           FIX_HTML_PRETTIER: true
           FIX_JAVASCRIPT_PRETTIER: true
@@ -37,7 +38,10 @@ jobs:
           FIX_TYPESCRIPT_PRETTIER: true
           FIX_VUE_PRETTIER: true
           FIX_YAML_PRETTIER: true
-          
+          FIX_EDITORCONFIG: true
+          FIX_JAVASCRIPT_STANDARD: true
+          FIX_TYPESCRIP_STANARD: true
+
       - name: Commit and push linting fixes
         # Run only on:
         # - Pull requests
