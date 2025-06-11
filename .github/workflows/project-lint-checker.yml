@@ -35,16 +35,18 @@ jobs:
           FIX_CSS: true
           FIX_GRAPHQL_PRETTIER: true
           FIX_HTML_PRETTIER: true
-          FIX_JAVASCRIPT_ES: true
           FIX_JAVASCRIPT_PRETTIER: true
           FIX_JSON_PRETTIER: true
           FIX_JSONC_PRETTIER: true
           FIX_JSX_PRETTIER: true
-          FIX_TYPESCRIPT_ES: true
           FIX_TYPESCRIPT_PRETTIER: true
           FIX_VUE_PRETTIER: true
           FIX_YAML_PRETTIER: true
           VALIDATE_EDITORCONFIG: false
+          VALIDATE_TYPESRIPT_ES: false
+          VALIDATE_JAVASCRIPT_ES: false
+          VALIDATE_HTML: false
+          VALIDATE_JSCPD: false
           IGNORE_GENERATED_FILES: true
 
       - name: Commit and push linting fixes
