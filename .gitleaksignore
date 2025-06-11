@@ -1,5 +1,3 @@
 #Ignore environments
-fingerprint=/github/workspace/src/environments/environment.ts
-fingerprint=/github/workspace/src/environments/environment.prod.ts
-**/environment.prod.ts
-**/environment.ts
+/github/workspace/src/environments/environment.prod.ts
+/github/workspace/src/environments/environment.ts
