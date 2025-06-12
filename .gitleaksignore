@@ -1,3 +1,2 @@
 #Ignore environments
-/github/workspace/src/environments/environment.prod.ts
-/github/workspace/src/environments/environment.ts
+src/environments/*

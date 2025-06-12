@@ -50,6 +50,7 @@ jobs:
           VALIDATE_HTML: false
           VALIDATE_JSCPD: false
           IGNORE_GENERATED_FILES: true
+          GITLEAKS_CONFIG_FILE: .gitleaksignore
 
       - name: Commit and push linting fixes
         # Run only on:
