@@ -5,11 +5,11 @@ service cloud.firestore {
     // Allow anyone to read tenant settings and pages
     match /tenants/{tenantId} {
       allow read: if true; // allows reading tenant document
-      
+
       match /settings/{settingDoc} {
         allow read: if true;  // allows reading settings documents
       }
-      
+
       match /pages/{pageId} {
         allow read: if true;  // allows reading pages
       }
