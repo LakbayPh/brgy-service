@@ -1,0 +1,66 @@
+---
+name: Lint
+
+on:
+  pull_request: null
+
+permissions:
+  contents: read
+
+jobs:
+  fix-lint-issues:
+    permissions:
+      # To write linting fixes
+      contents: write
+      # To write Super-linter status checks
+      statuses: write
+      packages: read
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SUPER_LINTER_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Super-Linter
+        uses: super-linter/super-linter@v7.4.0 # x-release-please-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_LINTER_TOKEN }}
+          # Set your fix mode variables to true
+          FIX_CSS_PRETTIER: true
+          FIX_CSS: true
+          FIX_GRAPHQL_PRETTIER: true
+          FIX_HTML_PRETTIER: true
+          FIX_JAVASCRIPT_PRETTIER: true
+          FIX_JSON_PRETTIER: true
+          FIX_JSONC_PRETTIER: true
+          FIX_JSX_PRETTIER: true
+          FIX_TYPESCRIPT_PRETTIER: true
+          FIX_VUE_PRETTIER: true
+          FIX_YAML_PRETTIER: true
+          VALIDATE_EDITORCONFIG: false
+          VALIDATE_TYPESCRIPT_ES: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_JAVASCRIPT_ES: false
+          VALIDATE_HTML: false
+          VALIDATE_JSCPD: false
+          IGNORE_GENERATED_FILES: true
+
+      - name: Commit and push linting fixes
+        # Run only on:
+        # - Pull requests
+        # - Not on the default branch
+        if: >
+          github.event_name == 'pull_request' &&
+          github.ref_name != github.event.repository.default_branch
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
+          commit_message: "chore: fix linting issues"
+          commit_user_name: super-linter
+          commit_user_email: super-linter@super-linter.dev
