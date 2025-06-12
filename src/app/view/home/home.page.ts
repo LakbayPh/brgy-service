@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   IonHeader,
   IonToolbar,
@@ -11,8 +12,10 @@ import {
   IonCardContent,
   IonGrid,
   IonCol,
-  IonRow
-} from '@ionic/angular/standalone'
+  IonRow,
+  IonButton,
+  IonButtons,
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -30,9 +33,15 @@ import {
     IonCardContent,
     IonGrid,
     IonCol,
-    IonRow
-  ]
+    IonRow,
+    IonButton,
+    IonButtons,
+  ],
 })
 export class HomePage {
-  constructor () {}
+  constructor(private router: Router) {}
+
+  goToTenant() {
+    this.router.navigate(['/tenant']);
+  }
 }

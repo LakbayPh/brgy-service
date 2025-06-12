@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Tenants </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="tenants.length > 0; else noData">
+    <ion-item *ngFor="let tenant of tenants">
+      <ion-label>
+        <h2>{{ tenant.name }}</h2>
+        <p>ID: {{ tenant.id }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noData>
+    <p>No tenants found.</p>
+  </ng-template>
+</ion-content>

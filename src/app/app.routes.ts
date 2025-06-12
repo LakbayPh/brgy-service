@@ -4,7 +4,12 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: async () =>
-      await import('../app/home/home.page').then((m) => m.HomePage),
+      await import('./view/home/home.page').then((m) => m.HomePage),
+  },
+  {
+    path: 'tenant',
+    loadComponent: async () =>
+      await import('./view/tenant/tenant.page').then((m) => m.TenantPage),
   },
   {
     path: '',
