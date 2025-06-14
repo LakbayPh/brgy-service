@@ -14,7 +14,8 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": {
-              "base": "www"
+              "base": "www",
+              "browser": ""
             },
             "index": "src/index.html",
             "polyfills": [
@@ -70,7 +71,7 @@
               "progress": false
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
