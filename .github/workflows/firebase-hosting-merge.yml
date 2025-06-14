@@ -42,7 +42,7 @@ jobs:
         run: ionic build
 
       - name: Deploy to Firebase (Production)
-        if: $ {{ github.head_ref == 'master' }}
+        if: ${{ github.head_ref == 'master' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
           projectId: barangayeservice
 
       - name: Deploy to Firebase (Development)
-        if: $ {{ startsWith(head_ref.head_ref, 'develop/') }}
+        if: ${{ startsWith(head_ref.head_ref, 'develop/') }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
