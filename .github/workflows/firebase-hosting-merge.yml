@@ -51,7 +51,7 @@ jobs:
           projectId: barangayeservice
 
       - name: Deploy to Firebase (Development)
-        if: ${{ startsWith(head_ref.head_ref, 'develop/') }}
+        if: ${{ startsWith(github.head_ref, 'develop/') }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
