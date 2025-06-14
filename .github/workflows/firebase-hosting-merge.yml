@@ -49,6 +49,7 @@ jobs:
 
       - name: Deploy to Firebase (Production)
         if: github.ref == 'refs/head/master'
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTION }}
@@ -57,6 +58,7 @@ jobs:
 
       - name: Deploy to Firebase (Development)
         if: startsWith(github.ref_name. 'develop/')
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTION }}
