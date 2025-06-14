@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          
+
       - name: Cache node modules
         uses: actions/cache@v4
         with:
@@ -29,7 +29,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-          
+
       - name: Install dependencies
         run: npm ci
 
@@ -42,7 +42,7 @@ jobs:
       - name: Build Application (Production)
         if: github.ref == 'refs/head/master'
         run: ionic build --configuration=production
-        
+
       - name: Build Application (Development)
         if: startsWith(github.ref_name, 'develop/')
         run: ionic build
@@ -64,7 +64,3 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTION }}
           channelId: live
           projectId: barangayeservice-dev
-
-          
-
-          
