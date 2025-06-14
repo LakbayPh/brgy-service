@@ -1,3 +1,5 @@
 #Ignore environments
 263c534b002d0ff956cca23ef86896bc2e0cd056:github/workspace/src/environments/environment.ts:gcp-api-key:8
 621230b57ff36fd558189fe55faf0be71c079cd4:/github/workspace/src/environments/environment.prod.ts:gcp-api-key:4
+/github/workspace/src/environments/environment.prod.ts:gcp-api-key:4
+/github/workspace/src/environments/environment.ts:gcp-api-key:8
