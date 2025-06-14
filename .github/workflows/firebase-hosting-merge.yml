@@ -40,15 +40,15 @@ jobs:
         run: ionic build
 
       - name: Build Application (Production)
-        if: github.ref == 'refs/head/master'
+        if: github.head_ref == 'refs/head/master'
         run: ionic build --configuration=production
 
       - name: Build Application (Development)
-        if: startsWith(github.ref_name, 'develop/')
+        if: startsWith(github.head_ref, 'develop/')
         run: ionic build
 
       - name: Deploy to Firebase (Production)
-        if: github.ref == 'refs/head/master'
+        if: github.head_ref == 'refs/head/master'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
           projectId: barangayeservice
 
       - name: Deploy to Firebase (Development)
-        if: startsWith(github.ref_name, 'develop/')
+        if: startsWith(github.head_ref, 'develop/')
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
