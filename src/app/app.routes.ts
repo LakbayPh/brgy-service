@@ -12,6 +12,16 @@ export const routes: Routes = [
       await import('./view/tenant/tenant.page').then((m) => m.TenantPage),
   },
   {
+    path: 'about-us',
+    loadComponent: async () =>
+      await import('./view/about-us/about-us.component').then((m) => m.AboutUsComponent),
+  },
+  {
+    path: 'hero',
+    loadComponent: async () =>
+      await import('./view/hero/hero.component').then((m) => m.HeroComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

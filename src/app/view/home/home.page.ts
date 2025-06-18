@@ -17,6 +17,9 @@ import {
   IonButtons,
 } from '@ionic/angular/standalone';
 
+import { AboutUsComponent } from '../about-us/about-us.component';
+import { HeroComponent } from '../hero/hero.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -36,6 +39,8 @@ import {
     IonRow,
     IonButton,
     IonButtons,
+    AboutUsComponent,
+    HeroComponent
   ],
 })
 export class HomePage {
