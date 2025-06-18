@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
@@ -10,7 +10,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [CommonModule, IonicModule]
 })
 export class HeroComponent  implements OnInit {
-
+@Input() variant: 'default' | 'minimal' | 'fancy' = 'default';
   constructor() { }
 
   ngOnInit() {}

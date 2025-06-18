@@ -1,14 +1,31 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Hero</ion-card-title>
-  </ion-card-header>
+<ion-content *ngIf="variant === 'default'" [fullscreen]="false">
+  <div class="hero-banner">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>Your Amazing Headline</h1>
+        <p>Your subheadline goes right here, capturing attention.</p>
+        <ion-button color="primary">Get Started</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
 
+
+<ion-card *ngIf="variant === 'minimal'">
+  <ion-card-header>
+    <ion-card-title>Hero - Minimal</ion-card-title>
+  </ion-card-header>
   <ion-card-content>
-    <p>
-      Hero test
-    </p>
-    <p>
-      Module Test!
-    </p>
+    <p>Simplified content only.</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="variant === 'fancy'">
+  <ion-card-header>
+    <ion-card-title>Hero - Fancy</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>Fancy layout with extra styling and features!</p>
+    <ion-button fill="outline" color="tertiary">Learn More</ion-button>
   </ion-card-content>
 </ion-card>

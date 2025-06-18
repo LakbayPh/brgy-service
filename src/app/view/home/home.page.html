@@ -1,41 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-    <ion-buttons slot="end">
-      <ion-button fill="solid" (click)="goToTenant()"> Tenants </ion-button>
-    </ion-buttons>
+  <ion-toolbar class="modern-header">
+    <ion-title>Logo</ion-title>
+
+    <div class="nav-links" slot="end">
+      <a>Home</a>
+      <a>About Us</a>
+      <a>Contact Us</a>
+      <span class="tenant-link">Tenants</span>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong>Congratulations!!</strong>
-    <br /><br />
-    You made it here :)
-  </div>
-
-  <div id="developers">
-    <!--Keep the row column count to 2--->
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>
-                <a href="https://github.com/Eastly1997">John Wesley Bodoso</a>
-              </ion-card-title>
-              <ion-card-subtitle>
-                Technical Manager / Lead Engineer
-              </ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              Hello~ Tara beyblade or Dota2~
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <app-hero [variant]="heroVariant"></app-hero>
   <app-about-us></app-about-us>
-  <app-hero></app-hero>
 </ion-content>

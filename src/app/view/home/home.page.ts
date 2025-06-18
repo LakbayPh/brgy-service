@@ -45,7 +45,7 @@ import { HeroComponent } from '../hero/hero.component';
 })
 export class HomePage {
   constructor(private router: Router) {}
-
+  heroVariant: 'default' | 'minimal' | 'fancy' = 'default'; // <- Type must match!
   goToTenant() {
     this.router.navigate(['/tenant']);
   }

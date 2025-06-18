@@ -1,35 +1,44 @@
-#container {
-  text-align: center;
-  margin-top: 75px;
-}
+.modern-header {
+  --background: #fff;
+  --color: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
 
-#container strong {
-  font-size: 50px;
-  line-height: 26px;
-  margin: auto;
-}
+  ion-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
 
-#developers {
-  width: 70%;
-  margin: auto;
-  margin-top: 50px;
-}
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 
-#developers ion-col {
-  max-width: 50%;
-}
+    a, .tenant-link {
+      font-size: 1rem;
+      cursor: pointer;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
 
-#developers ion-card {
-  min-height: 100px;
-}
+      &:hover {
+        color: #007bff; /* optional hover color */
+      }
+    }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
+    .tenant-link {
+      font-weight: 500;
+      padding: 6px 12px;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      color: #007bff;
 
-#developers a {
-  text-decoration: none;
+      &:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+    }
+  }
 }
