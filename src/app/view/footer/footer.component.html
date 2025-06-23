@@ -1,0 +1,38 @@
+<ion-footer class="app-footer">
+  <ion-toolbar class="footer-toolbar">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" sizeMd="4" class="footer-brand">
+          <ion-title class="footer-title">MyApp</ion-title>
+          <p class="copyright">
+            &copy; {{ currentYear }} MyApp. All rights reserved.
+          </p>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="4" class="footer-links">
+          <a routerLink="/" class="footer-link">
+            <ion-icon [icon]="home"></ion-icon> Home
+          </a>
+          <a routerLink="/about" class="footer-link">
+            <ion-icon [icon]="info"></ion-icon> About
+          </a>
+          <a routerLink="/contact" class="footer-link">
+            <ion-icon [icon]="call"></ion-icon> Contact
+          </a>
+        </ion-col>
+
+        <ion-col size="12" sizeMd="4" class="footer-social">
+          <a href="#" class="social-icon"
+            ><ion-icon [icon]="facebook"></ion-icon
+          ></a>
+          <a href="#" class="social-icon"
+            ><ion-icon [icon]="twitter"></ion-icon
+          ></a>
+          <a href="#" class="social-icon"
+            ><ion-icon [icon]="instagram"></ion-icon
+          ></a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
