@@ -1,0 +1,28 @@
+.section-title {
+  font-size: 1.5rem;
+  margin: 16px 0;
+  font-weight: bold;
+  text-align: center;
+  color: #222;
+}
+
+.event-card {
+  margin-bottom: 16px;
+  border-left: 6px solid #3880ff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.event-detail {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.event-icon {
+  font-size: 1.1rem;
+  margin-right: 8px;
+  color: #3880ff;
+}
