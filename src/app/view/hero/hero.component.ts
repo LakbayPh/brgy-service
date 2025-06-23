@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
@@ -7,12 +7,11 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule]
+  imports: [CommonModule, IonicModule],
 })
-export class HeroComponent  implements OnInit {
-@Input() variant: 'default' | 'minimal' | 'fancy' = 'minimal';
-  constructor() { }
+export class HeroComponent implements OnInit {
+  @Input() variant: 'default' | 'minimal' | 'fancy' = 'minimal';
+  constructor() {}
 
   ngOnInit() {}
-
 }

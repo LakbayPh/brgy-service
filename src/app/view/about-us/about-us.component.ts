@@ -7,12 +7,10 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss'],
   standalone: true,
-  imports: [CommonModule,IonicModule]
+  imports: [CommonModule, IonicModule],
 })
-export class AboutUsComponent  implements OnInit {
-
-  constructor() { }
+export class AboutUsComponent implements OnInit {
+  constructor() {}
 
   ngOnInit() {}
-
 }

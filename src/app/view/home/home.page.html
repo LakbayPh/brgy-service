@@ -4,9 +4,7 @@
 
     <div class="nav-links" slot="end">
       <ng-container *ngFor="let page of pages">
-        <a (click)="scrollToSection(page.slug)">
-          {{ page.title }}
-        </a>
+        <a (click)="scrollToSection(page.slug)"> {{ page.title }} </a>
       </ng-container>
 
       <span class="tenant-link">Submit a Report</span>
@@ -15,9 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="false">
-
   <!-- Hero -->
   <div #heroSection *ngIf="hasPage('home')">
     <app-hero [variant]="heroVariant"></app-hero>
@@ -40,4 +36,3 @@
 
   <app-footer></app-footer>
 </ion-content>
-

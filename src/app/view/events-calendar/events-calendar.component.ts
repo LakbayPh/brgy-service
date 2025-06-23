@@ -8,7 +8,7 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonIcon
+  IonIcon,
 } from '@ionic/angular/standalone';
 import { calendarOutline, timeOutline } from 'ionicons/icons';
 
@@ -26,10 +26,10 @@ import { calendarOutline, timeOutline } from 'ionicons/icons';
     IonGrid,
     IonRow,
     IonCol,
-    IonIcon
-  ]
+    IonIcon,
+  ],
 })
-export class EventsCalendarComponent  implements OnInit {
+export class EventsCalendarComponent implements OnInit {
   calendarIcon = calendarOutline;
   timeIcon = timeOutline;
 
@@ -38,23 +38,22 @@ export class EventsCalendarComponent  implements OnInit {
       title: 'Barangay Assembly Day',
       date: 'June 29, 2025',
       time: '9:00 AM - 12:00 NN',
-      location: 'Barangay Hall'
+      location: 'Barangay Hall',
     },
     {
       title: 'Tree Planting Activity',
       date: 'July 3, 2025',
       time: '7:00 AM - 11:00 AM',
-      location: 'Eco Park'
+      location: 'Eco Park',
     },
     {
       title: 'Youth Sports Clinic',
       date: 'July 10, 2025',
       time: '2:00 PM - 5:00 PM',
-      location: 'Covered Court'
-    }
+      location: 'Covered Court',
+    },
   ];
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

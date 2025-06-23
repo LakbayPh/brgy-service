@@ -1,6 +1,7 @@
 .modern-header {
   --background: #fff;
   --color: #222;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +17,7 @@
     gap: 1.5rem;
     align-items: center;
 
-    a, 
+    a,
     .tenant-link {
       font-size: 1rem;
       cursor: pointer;
@@ -24,7 +25,7 @@
       text-decoration: none;
       transition: color 0.2s ease-in-out;
     }
-    
+
     a:hover {
       color: #007bff; /* optional hover color */
     }

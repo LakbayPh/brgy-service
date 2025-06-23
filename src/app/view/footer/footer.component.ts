@@ -21,18 +21,10 @@ import {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   standalone: true,
-  imports: [
-    IonFooter,
-    IonToolbar,
-    IonTitle,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonIcon,
-  ],
+  imports: [IonFooter, IonToolbar, IonTitle, IonGrid, IonRow, IonCol, IonIcon],
 })
-export class FooterComponent  implements OnInit {
-// Icons
+export class FooterComponent implements OnInit {
+  // Icons
   facebook = logoFacebook;
   twitter = logoTwitter;
   instagram = logoInstagram;
@@ -41,8 +33,7 @@ export class FooterComponent  implements OnInit {
   call = callOutline;
 
   currentYear = new Date().getFullYear();
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

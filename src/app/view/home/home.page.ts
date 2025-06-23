@@ -1,4 +1,4 @@
-import { Component,ElementRef, ViewChild,OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ import {
 
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { HeroComponent } from '../hero/hero.component';
-import {NewsAndAnnouncementComponent} from '../news-and-announcement/news-and-announcement.component'
+import { NewsAndAnnouncementComponent } from '../news-and-announcement/news-and-announcement.component';
 import { EventsCalendarComponent } from '../events-calendar/events-calendar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { TenantsService } from 'src/app/services/firebase/firestore/tenants/tenants.service';
@@ -51,19 +51,21 @@ import { Page } from 'src/app/services/firebase/model/page';
     NewsAndAnnouncementComponent,
     EventsCalendarComponent,
     FooterComponent,
-    CommonModule
+    CommonModule,
   ],
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
   pages: Page[] = [];
-  tenantId = 'tenant001'
+  tenantId = 'tenant001';
   heroVariant: 'default' | 'minimal' | 'fancy' = 'minimal'; // <- Type must match!
   @ViewChild('aboutUsSection') aboutUsSection!: ElementRef;
   @ViewChild('newsSection') newsSection!: ElementRef;
   @ViewChild('eventsSection') eventsSection!: ElementRef;
   @ViewChild('heroSection') heroSection!: ElementRef;
-  constructor(private router: Router,private tenantService: TenantsService) {}
-  
+  constructor(
+    private router: Router,
+    private tenantService: TenantsService,
+  ) {}
 
   scrollToSection(section: string) {
     let target: ElementRef | null = null;
@@ -87,20 +89,23 @@ export class HomePage implements OnInit{
     }
 
     if (target) {
-      target.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     }
   }
   goToTenant() {
     this.router.navigate(['/tenant']);
   }
 
-   ngOnInit() {
+  ngOnInit() {
     this.tenantService.getTenantPages(this.tenantId).subscribe((pages) => {
       console.log(pages);
       this.pages = pages;
     });
   }
   hasPage(slug: string): boolean {
-  return this.pages.some(p => p.slug === slug);
+    return this.pages.some((p) => p.slug === slug);
   }
 }
