@@ -1,4 +1,6 @@
-import { Component,ElementRef, ViewChild } from '@angular/core';
+import { Component,ElementRef, ViewChild,OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import {
   IonHeader,
@@ -22,6 +24,9 @@ import { HeroComponent } from '../hero/hero.component';
 import {NewsAndAnnouncementComponent} from '../news-and-announcement/news-and-announcement.component'
 import { EventsCalendarComponent } from '../events-calendar/events-calendar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { TenantsService } from 'src/app/services/firebase/firestore/tenants/tenants.service';
+import { Page } from 'src/app/services/firebase/model/page';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -45,31 +50,35 @@ import { FooterComponent } from '../footer/footer.component';
     HeroComponent,
     NewsAndAnnouncementComponent,
     EventsCalendarComponent,
-    FooterComponent
+    FooterComponent,
+    CommonModule
   ],
 })
-export class HomePage {
-  constructor(private router: Router) {}
-  heroVariant: 'default' | 'minimal' | 'fancy' = 'default'; // <- Type must match!
+export class HomePage implements OnInit{
+  pages: Page[] = [];
+  tenantId = 'tenant001'
+  heroVariant: 'default' | 'minimal' | 'fancy' = 'minimal'; // <- Type must match!
   @ViewChild('aboutUsSection') aboutUsSection!: ElementRef;
   @ViewChild('newsSection') newsSection!: ElementRef;
   @ViewChild('eventsSection') eventsSection!: ElementRef;
   @ViewChild('heroSection') heroSection!: ElementRef;
+  constructor(private router: Router,private tenantService: TenantsService) {}
+  
 
   scrollToSection(section: string) {
     let target: ElementRef | null = null;
 
     switch (section) {
-      case 'hero':
+      case 'home':
         target = this.heroSection;
         break;
       case 'about':
         target = this.aboutUsSection;
         break;
-      case 'news':
+      case 'news_and_announcements':
         target = this.newsSection;
         break;
-      case 'events':
+      case 'events_calendar':
         target = this.eventsSection;
         break;
       default:
@@ -83,5 +92,15 @@ export class HomePage {
   }
   goToTenant() {
     this.router.navigate(['/tenant']);
+  }
+
+   ngOnInit() {
+    this.tenantService.getTenantPages(this.tenantId).subscribe((pages) => {
+      console.log(pages);
+      this.pages = pages;
+    });
+  }
+  hasPage(slug: string): boolean {
+  return this.pages.some(p => p.slug === slug);
   }
 }

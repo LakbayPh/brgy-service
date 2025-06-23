@@ -10,7 +10,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [CommonModule, IonicModule]
 })
 export class HeroComponent  implements OnInit {
-@Input() variant: 'default' | 'minimal' | 'fancy' = 'default';
+@Input() variant: 'default' | 'minimal' | 'fancy' = 'minimal';
   constructor() { }
 
   ngOnInit() {}

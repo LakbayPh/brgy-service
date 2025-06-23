@@ -1,5 +1,6 @@
+<!-- DEFAULT Variant (left-aligned) -->
 <ion-content *ngIf="variant === 'default'" [fullscreen]="false">
-  <div class="hero-banner">
+  <div class="hero-banner align-left">
     <div class="overlay">
       <div class="hero-content">
         <h1>Your Amazing Headline</h1>
@@ -10,22 +11,29 @@
   </div>
 </ion-content>
 
+<!-- MINIMAL Variant (right-aligned) -->
+<ion-content *ngIf="variant === 'minimal'" [fullscreen]="false">
+  <div class="hero-banner align-right">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>Your Amazing Headline</h1>
+        <p>Your subheadline goes right here, capturing attention.</p>
+        <ion-button expand="block" color="primary">Get Started</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
 
-<ion-card *ngIf="variant === 'minimal'">
-  <ion-card-header>
-    <ion-card-title>Hero - Minimal</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <p>Simplified content only.</p>
-  </ion-card-content>
-</ion-card>
-
-<ion-card *ngIf="variant === 'fancy'">
-  <ion-card-header>
-    <ion-card-title>Hero - Fancy</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <p>Fancy layout with extra styling and features!</p>
-    <ion-button fill="outline" color="tertiary">Learn More</ion-button>
-  </ion-card-content>
-</ion-card>
+<!-- FANCY Variant (center-aligned) -->
+<ion-content *ngIf="variant === 'fancy'" [fullscreen]="false">
+  <div class="hero-banner align-center">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>Your Amazing Headline</h1>
+        <p>Your subheadline goes right here, capturing attention.</p>
+        <ion-button fill="solid" color="tertiary">Get Started</ion-button>
+        <ion-button fill="outline" color="tertiary">Learn More</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

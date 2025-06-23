@@ -3,34 +3,41 @@
     <ion-title>Logo</ion-title>
 
     <div class="nav-links" slot="end">
-      <a (click)="scrollToSection('hero')">Home</a>
-      <a (click)="scrollToSection('about')">About Us</a>
-      <a (click)="scrollToSection('news')">News and Announcement</a>
-      <a (click)="scrollToSection('events')">Events Calendar</a>
+      <ng-container *ngFor="let page of pages">
+        <a (click)="scrollToSection(page.slug)">
+          {{ page.title }}
+        </a>
+      </ng-container>
+
       <span class="tenant-link">Submit a Report</span>
       <span class="tenant-link">Request a Document</span>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+<ion-content [fullscreen]="false">
+
   <!-- Hero -->
-<div #heroSection>
-<app-hero [variant]="heroVariant"></app-hero>
-</div>
-<!-- About Us -->
-<div #aboutUsSection>
-  <app-about-us></app-about-us>
-</div>
+  <div #heroSection *ngIf="hasPage('home')">
+    <app-hero [variant]="heroVariant"></app-hero>
+  </div>
 
-<!-- News -->
-<div #newsSection>
-  <app-news-and-announcement></app-news-and-announcement>
-</div>
+  <!-- About Us -->
+  <div #aboutUsSection *ngIf="hasPage('about')">
+    <app-about-us></app-about-us>
+  </div>
 
-<!-- Events -->
-<div #eventsSection>
-  <app-events-calendar></app-events-calendar>
-</div>
+  <!-- News -->
+  <div #newsSection *ngIf="hasPage('news_and_announcements')">
+    <app-news-and-announcement></app-news-and-announcement>
+  </div>
+
+  <!-- Events -->
+  <div #eventsSection *ngIf="hasPage('events_calendar')">
+    <app-events-calendar></app-events-calendar>
+  </div>
+
   <app-footer></app-footer>
 </ion-content>
+
