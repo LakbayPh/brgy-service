@@ -16,16 +16,17 @@
     gap: 1.5rem;
     align-items: center;
 
-    a, .tenant-link {
+    a, 
+    .tenant-link {
       font-size: 1rem;
       cursor: pointer;
       color: #333;
       text-decoration: none;
       transition: color 0.2s ease-in-out;
-
-      &:hover {
-        color: #007bff; /* optional hover color */
-      }
+    }
+    
+    a:hover {
+      color: #007bff; /* optional hover color */
     }
 
     .tenant-link {
@@ -34,11 +35,10 @@
       border: 1px solid #007bff;
       border-radius: 4px;
       color: #007bff;
-
-      &:hover {
-        background-color: #007bff;
-        color: #fff;
-      }
     }
+
+    .tenant-link:hover {
+      background-color: #007bff;
+      color: #fff;
   }
 }
