@@ -27,7 +27,6 @@ import {
     IonGrid,
     IonRow,
     IonCol,
-    IonImg,
   ],
 })
 export class NewsAndAnnouncementComponent implements OnInit {

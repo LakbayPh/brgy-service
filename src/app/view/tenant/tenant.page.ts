@@ -11,7 +11,7 @@ import {
 } from '@ionic/angular/standalone';
 import { Tenant } from 'src/app/services/firebase/model/tenant';
 import { CommonModule } from '@angular/common';
-import { TenantsService } from 'src/app/services/firebase/firestore/tenants/tenants.service';
+import { TenantService } from 'src/app/services/firebase/firestore/tenant.service';
 
 @Component({
   selector: 'app-tenant',
@@ -33,7 +33,7 @@ export class TenantPage {
   constructor(private injector: Injector) {}
 
   ngOnInit() {
-    const tenantService = this.injector.get(TenantsService);
+    const tenantService = this.injector.get(TenantService);
     tenantService.getAllTenants().subscribe((data) => {
       console.log(data);
       this.tenants = data;

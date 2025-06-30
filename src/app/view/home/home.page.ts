@@ -24,8 +24,9 @@ import { HeroComponent } from '../hero/hero.component';
 import { NewsAndAnnouncementComponent } from '../news-and-announcement/news-and-announcement.component';
 import { EventsCalendarComponent } from '../events-calendar/events-calendar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { TenantsService } from 'src/app/services/firebase/firestore/tenants/tenants.service';
-import { Page } from 'src/app/services/firebase/model/page';
+import { Feature } from 'src/app/services/firebase/model/feature';
+import { FeatureService } from 'src/app/services/firebase/firestore/features.service';
+import { CACHE_TENANT } from 'src/app/common/constants/feature-constants';
 
 @Component({
   selector: 'app-home',
@@ -36,16 +37,6 @@ import { Page } from 'src/app/services/firebase/model/page';
     IonToolbar,
     IonTitle,
     IonContent,
-    IonCard,
-    IonCardTitle,
-    IonCardHeader,
-    IonCardSubtitle,
-    IonCardContent,
-    IonGrid,
-    IonCol,
-    IonRow,
-    IonButton,
-    IonButtons,
     AboutUsComponent,
     HeroComponent,
     NewsAndAnnouncementComponent,
@@ -55,17 +46,14 @@ import { Page } from 'src/app/services/firebase/model/page';
   ],
 })
 export class HomePage implements OnInit {
-  pages: Page[] = [];
+  features: Feature[] = [];
   tenantId = 'tenant001';
   heroVariant: 'default' | 'minimal' | 'fancy' = 'minimal'; // <- Type must match!
   @ViewChild('aboutUsSection') aboutUsSection!: ElementRef;
   @ViewChild('newsSection') newsSection!: ElementRef;
   @ViewChild('eventsSection') eventsSection!: ElementRef;
   @ViewChild('heroSection') heroSection!: ElementRef;
-  constructor(
-    private router: Router,
-    private tenantService: TenantsService,
-  ) {}
+  constructor(private router: Router, private featureService: FeatureService) {}
 
   scrollToSection(section: string) {
     let target: ElementRef | null = null;
@@ -74,7 +62,7 @@ export class HomePage implements OnInit {
       case 'home':
         target = this.heroSection;
         break;
-      case 'about':
+      case 'ABOUT_US':
         target = this.aboutUsSection;
         break;
       case 'news_and_announcements':
@@ -95,17 +83,20 @@ export class HomePage implements OnInit {
       });
     }
   }
-  goToTenant() {
-    this.router.navigate(['/tenant']);
-  }
 
   ngOnInit() {
-    this.tenantService.getTenantPages(this.tenantId).subscribe((pages) => {
-      console.log(pages);
-      this.pages = pages;
+    localStorage.setItem(CACHE_TENANT, this.tenantId);
+    this.featureService.getAllFeature().subscribe((features) => {
+      console.log(features);
+      this.features = features;
+    });
+
+    this.featureService.getFeature('ABOUT_US').subscribe((feature) => {
+      console.log(feature);
     });
   }
-  hasPage(slug: string): boolean {
-    return this.pages.some((p) => p.slug === slug);
+
+  hasPage(id: string): boolean {
+    return this.features.some((p) => p.id === id && p.enable == true);
   }
 }

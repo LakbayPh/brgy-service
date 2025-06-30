@@ -3,8 +3,8 @@
     <ion-title>Logo</ion-title>
 
     <div class="nav-links" slot="end">
-      <ng-container *ngFor="let page of pages">
-        <a (click)="scrollToSection(page.slug)"> {{ page.title }} </a>
+      <ng-container *ngFor="let feature of features">
+        <a (click)="scrollToSection(feature.id)"> {{ feature.name }} </a>
       </ng-container>
 
       <span class="tenant-link">Submit a Report</span>
@@ -20,7 +20,7 @@
   </div>
 
   <!-- About Us -->
-  <div #aboutUsSection *ngIf="hasPage('about')">
+  <div #aboutUsSection *ngIf="hasPage('ABOUT_US')">
     <app-about-us></app-about-us>
   </div>
 
