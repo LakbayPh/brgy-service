@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
+import { EventsCalendarComponent } from './events-calendar.component';
+
+describe('EventsCalendarComponent', () => {
+  let component: EventsCalendarComponent;
+  let fixture: ComponentFixture<EventsCalendarComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [EventsCalendarComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(EventsCalendarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

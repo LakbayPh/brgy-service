@@ -1,0 +1,30 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <h2 class="section-title">📅 Upcoming Events</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" *ngFor="let event of events">
+      <ion-card class="event-card">
+        <ion-card-header>
+          <ion-card-title>{{ event.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="event-detail">
+            <ion-icon [icon]="calendarIcon" class="event-icon"></ion-icon>
+            <span>{{ event.date }}</span>
+          </div>
+          <div class="event-detail">
+            <ion-icon [icon]="timeIcon" class="event-icon"></ion-icon>
+            <span>{{ event.time }}</span>
+          </div>
+          <div class="event-detail">
+            📍 <span>{{ event.location }}</span>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

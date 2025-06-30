@@ -1,0 +1,60 @@
+name: Firebase - Webhost auto deployment
+on:
+  push:
+    branches:
+      - master
+      - "develop/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set-up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
+      - name: Build Application (Production)
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: ionic build --configuration=production
+
+      - name: Build Application (Development)
+        if: ${{ startsWith(github.ref, 'refs/heads/develop/') }}
+        run: ionic build
+
+      - name: Deploy to Firebase (Production)
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRODUCTION }}
+          channelId: live
+          projectId: barangayeservice
+
+      - name: Deploy to Firebase (Development)
+        if: ${{ startsWith(github.ref, 'refs/heads/develop/') }}
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEVELOPMENT }}
+          channelId: live
+          projectId: barangayeservice-dev

@@ -5,15 +5,15 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyCxOknEvFiloeH-TwjVsEeZzPOHDcYDcDM',
-    authDomain: 'barangayeservice.firebaseapp.com',
-    projectId: 'barangayeservice',
-    storageBucket: 'barangayeservice.firebasestorage.app',
-    messagingSenderId: '816829006971',
-    appId: '1:816829006971:web:47645f0138a29c4e708ede',
-    measurementId: 'G-Y713YXKLN4'
-  }
-}
+    apiKey: 'AIzaSyDn8fK2M-Mdc4u86s_9lfMzq04fxKTm3VQ',
+    authDomain: 'barangayeservice-dev.firebaseapp.com',
+    projectId: 'barangayeservice-dev',
+    storageBucket: 'barangayeservice-dev.firebasestorage.app',
+    messagingSenderId: '860327121760',
+    appId: '1:860327121760:web:a535214c5fa365c2130405',
+    measurementId: 'G-EG0JQ3CJ7T',
+  },
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
